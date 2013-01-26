@@ -3,9 +3,8 @@ module EvernoteOAuth
   class Client
     def user_store
       @user_store = EvernoteOAuth::UserStore.new(
-	token: @token,
-	client: thrift_client(::Evernote::EDAM::UserStore::UserStore::Client,
-			      endpoint('edam/user'))
+        :token => @token,
+        :client => thrift_client(::Evernote::EDAM::UserStore::UserStore::Client, endpoint('edam/user'))
       )
     end
   end
